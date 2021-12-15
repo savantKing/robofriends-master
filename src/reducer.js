@@ -9,7 +9,7 @@ const initialState = {
     searchField: ''
 }
 
-export const searchRobots = (state = initialState, action = {}) => {
+export let searchRobots = (state = initialState, action = {}) => {
     console.log(action.type);
 
     switch (action.type) {

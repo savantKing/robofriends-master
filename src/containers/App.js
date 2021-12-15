@@ -10,14 +10,14 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
   return {
-    searchField: state.searchField,
+    searchField: state.searchRobots.searchField,
     robots: state.requestRobots.robots,
     isPending: state.requestRobots.isPending
   }
 };
 
 // dispatch the DOM changes to call an action. note mapStateToProps returns object, mapDispatchToProps returns function
-// the function returns an object then uses connect to change the data from redecers.
+// the function returns an object then uses connect to change the data from reducers.
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
@@ -28,13 +28,10 @@ const mapDispatchToProps = (dispatch) => {
 function App(props) {
 
 
- // const [robots, robotState] = useState([]);
+  // const [robots, robotState] = useState([]);
   useEffect(() => {
     props.onRequestRobots();
-    console.log(props);
   }, []);
-
-  console.log(props);
 
 
 
